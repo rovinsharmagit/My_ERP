@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4cedb1110227416799f9bfab7f710944" Name="Diagram1">
+        <EntityTypeShape EntityType="EaseErpV1Model.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblAccountControl" Width="1.5" PointX="5.25" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblAccountHead" Width="1.5" PointX="5.25" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblAccountSubControl" Width="1.5" PointX="10.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblBranch" Width="1.5" PointX="6" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblBranchType" Width="1.5" PointX="3.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblCategory" Width="1.5" PointX="8.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblCompany" Width="1.5" PointX="6" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblCustomer" Width="1.5" PointX="8.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblCustomerInvoice" Width="1.5" PointX="13.5" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblCustomerInvoiceDetail" Width="1.5" PointX="18.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblCustomerPayment" Width="1.5" PointX="18.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblEmployee" Width="1.5" PointX="6" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblFinancialYear" Width="1.5" PointX="5.25" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblPayroll" Width="1.5" PointX="8.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblStock" Width="1.5" PointX="13.5" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblSupplier" Width="1.5" PointX="11.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblSupplierInvoice" Width="1.5" PointX="16.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblSupplierInvoiceDetail" Width="1.5" PointX="21.75" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblSupplierPayment" Width="1.5" PointX="16.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblTransaction" Width="1.5" PointX="15.75" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblUser" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblUserType" Width="1.5" PointX="0.75" PointY="19.625" IsExpanded="true" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblAccountControl_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblAccountControl_tblCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblAccountControl_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblAccountSubControl_tblAccountControl" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblTransaction_tblAccountControl" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblAccountHead_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblAccountSubControl_tblAccountHead" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblTransaction_tblAccountHead" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblTransection_tblAccountHead" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblAccountSubControl_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblAccountSubControl_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblTransection_tblAccountSubControl" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblBranch_tblBranchType" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCategory_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomer_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerInvoice_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerPayment_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblEmployee_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblPayroll_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblStock_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplier_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCategory_tblCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCategory_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblStock_tblCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomer_tblCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerInvoice_tblCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerPayment_tblCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblEmployee_tblCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblPayroll_tblCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblStock_tblCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplier_tblCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomer_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerInvoice_tblCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerInvoice_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerInvoiceDetail_tblCustomerInvoice" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerPayment_tblCustomerInvoice" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerInvoiceDetail_tblStock" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerPayment_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblPayroll_tblEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblFinancialYear_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblTransaction_tblFinancialYear" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblTransection_tblFinancialYear" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblPayroll_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblStock_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplierInvoiceDetail_tblStock" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplier_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblSupplier" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplierPayment_tblSupplier" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplierInvoice_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplierInvoiceDetail_tblSupplierInvoice" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplierPayment_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblTransaction_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblUser_tblUserType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
