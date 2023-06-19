@@ -18,7 +18,7 @@ namespace db_class
         public int CustomerInvoiceID { get; set; }
         public int ProductID { get; set; }
         public int SaleQuantity { get; set; }
-        public int SaleUnitPrice { get; set; }
+        public double SaleUnitPrice { get; set; }
     
         public virtual tblCustomerInvoice tblCustomerInvoice { get; set; }
         public virtual tblStock tblStock { get; set; }

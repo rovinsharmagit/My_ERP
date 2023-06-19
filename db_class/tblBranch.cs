@@ -34,7 +34,7 @@ namespace db_class
         public int EmployeeID { get; set; }
         public int BranchTypeID { get; set; }
         public string BranchName { get; set; }
-        public int BranchContact { get; set; }
+        public string BranchContact { get; set; }
         public string BranchAddress { get; set; }
         public int CompanyID { get; set; }
         public Nullable<int> BrchID { get; set; }
