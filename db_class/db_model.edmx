@@ -53,12 +53,11 @@
           <Key>
             <PropertyRef Name="BranchID" />
           </Key>
-          <Property Name="BranchID" Type="int" Nullable="false" />
-          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="BranchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BranchTypeID" Type="int" Nullable="false" />
-          <Property Name="BranchName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="BranchContact" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="BranchAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BranchAddress" Type="nvarchar" MaxLength="300" Nullable="false" />
           <Property Name="CompanyID" Type="int" Nullable="false" />
           <Property Name="BrchID" Type="int" />
         </EntityType>
@@ -66,7 +65,7 @@
           <Key>
             <PropertyRef Name="BranchTypeID" />
           </Key>
-          <Property Name="BranchTypeID" Type="int" Nullable="false" />
+          <Property Name="BranchTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BranchType" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="tblCategory">
@@ -84,7 +83,8 @@
             <PropertyRef Name="CompanyID" />
           </Key>
           <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CompanyName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Logo" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tblCustomer">
           <Key>
@@ -277,8 +277,7 @@
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="UserID" Type="int" Nullable="false" />
-          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserTypeID" Type="int" Nullable="false" />
           <Property Name="FullName" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
@@ -291,7 +290,7 @@
           <Key>
             <PropertyRef Name="UserTypeID" />
           </Key>
-          <Property Name="UserTypeID" Type="int" Nullable="false" />
+          <Property Name="UserTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserType" Type="nvarchar" MaxLength="150" Nullable="false" />
         </EntityType>
         <Association Name="FK_tblAccountControl_tblBranch">
@@ -1243,7 +1242,6 @@
           <EntitySet Name="tblBranches" EntityType="EaseErpV1Model.tblBranch" />
           <EntitySet Name="tblBranchTypes" EntityType="EaseErpV1Model.tblBranchType" />
           <EntitySet Name="tblCategories" EntityType="EaseErpV1Model.tblCategory" />
-          <EntitySet Name="tblCompanies" EntityType="EaseErpV1Model.tblCompany" />
           <EntitySet Name="tblCustomers" EntityType="EaseErpV1Model.tblCustomer" />
           <EntitySet Name="tblCustomerInvoices" EntityType="EaseErpV1Model.tblCustomerInvoice" />
           <EntitySet Name="tblCustomerInvoiceDetails" EntityType="EaseErpV1Model.tblCustomerInvoiceDetail" />
@@ -1261,10 +1259,6 @@
           <EntitySet Name="tblUserTypes" EntityType="EaseErpV1Model.tblUserType" />
           <AssociationSet Name="FK_tblAccountControl_tblBranch" Association="EaseErpV1Model.FK_tblAccountControl_tblBranch">
             <End Role="tblBranch" EntitySet="tblBranches" />
-            <End Role="tblAccountControl" EntitySet="tblAccountControls" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblAccountControl_tblCompany" Association="EaseErpV1Model.FK_tblAccountControl_tblCompany">
-            <End Role="tblCompany" EntitySet="tblCompanies" />
             <End Role="tblAccountControl" EntitySet="tblAccountControls" />
           </AssociationSet>
           <AssociationSet Name="FK_tblAccountControl_tblUser" Association="EaseErpV1Model.FK_tblAccountControl_tblUser">
@@ -1347,10 +1341,6 @@
             <End Role="tblBranch" EntitySet="tblBranches" />
             <End Role="tblSupplierInvoice" EntitySet="tblSupplierInvoices" />
           </AssociationSet>
-          <AssociationSet Name="FK_tblCategory_tblCompany" Association="EaseErpV1Model.FK_tblCategory_tblCompany">
-            <End Role="tblCompany" EntitySet="tblCompanies" />
-            <End Role="tblCategory" EntitySet="tblCategories" />
-          </AssociationSet>
           <AssociationSet Name="FK_tblCategory_tblUser" Association="EaseErpV1Model.FK_tblCategory_tblUser">
             <End Role="tblUser" EntitySet="tblUsers" />
             <End Role="tblCategory" EntitySet="tblCategories" />
@@ -1358,38 +1348,6 @@
           <AssociationSet Name="FK_tblStock_tblCategory" Association="EaseErpV1Model.FK_tblStock_tblCategory">
             <End Role="tblCategory" EntitySet="tblCategories" />
             <End Role="tblStock" EntitySet="tblStocks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblCustomer_tblCompany" Association="EaseErpV1Model.FK_tblCustomer_tblCompany">
-            <End Role="tblCompany" EntitySet="tblCompanies" />
-            <End Role="tblCustomer" EntitySet="tblCustomers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblCustomerInvoice_tblCompany" Association="EaseErpV1Model.FK_tblCustomerInvoice_tblCompany">
-            <End Role="tblCompany" EntitySet="tblCompanies" />
-            <End Role="tblCustomerInvoice" EntitySet="tblCustomerInvoices" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblCustomerPayment_tblCompany" Association="EaseErpV1Model.FK_tblCustomerPayment_tblCompany">
-            <End Role="tblCompany" EntitySet="tblCompanies" />
-            <End Role="tblCustomerPayment" EntitySet="tblCustomerPayments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblEmployee_tblCompany" Association="EaseErpV1Model.FK_tblEmployee_tblCompany">
-            <End Role="tblCompany" EntitySet="tblCompanies" />
-            <End Role="tblEmployee" EntitySet="tblEmployees" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblPayroll_tblCompany" Association="EaseErpV1Model.FK_tblPayroll_tblCompany">
-            <End Role="tblCompany" EntitySet="tblCompanies" />
-            <End Role="tblPayroll" EntitySet="tblPayrolls" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblStock_tblCompany" Association="EaseErpV1Model.FK_tblStock_tblCompany">
-            <End Role="tblCompany" EntitySet="tblCompanies" />
-            <End Role="tblStock" EntitySet="tblStocks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblSupplier_tblCompany" Association="EaseErpV1Model.FK_tblSupplier_tblCompany">
-            <End Role="tblCompany" EntitySet="tblCompanies" />
-            <End Role="tblSupplier" EntitySet="tblSuppliers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblSupplierInvoiceTable_tblCompany" Association="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblCompany">
-            <End Role="tblCompany" EntitySet="tblCompanies" />
-            <End Role="tblSupplierInvoice" EntitySet="tblSupplierInvoices" />
           </AssociationSet>
           <AssociationSet Name="FK_tblCustomer_tblUser" Association="EaseErpV1Model.FK_tblCustomer_tblUser">
             <End Role="tblUser" EntitySet="tblUsers" />
@@ -1479,6 +1437,47 @@
             <End Role="tblUserType" EntitySet="tblUserTypes" />
             <End Role="tblUser" EntitySet="tblUsers" />
           </AssociationSet>
+          <EntitySet Name="tblCompanies" EntityType="EaseErpV1Model.tblCompany" />
+          <AssociationSet Name="FK_tblAccountControl_tblCompany" Association="EaseErpV1Model.FK_tblAccountControl_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblAccountControl" EntitySet="tblAccountControls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCategory_tblCompany" Association="EaseErpV1Model.FK_tblCategory_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblCategory" EntitySet="tblCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomer_tblCompany" Association="EaseErpV1Model.FK_tblCustomer_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblCustomer" EntitySet="tblCustomers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomerInvoice_tblCompany" Association="EaseErpV1Model.FK_tblCustomerInvoice_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblCustomerInvoice" EntitySet="tblCustomerInvoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomerPayment_tblCompany" Association="EaseErpV1Model.FK_tblCustomerPayment_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblCustomerPayment" EntitySet="tblCustomerPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblEmployee_tblCompany" Association="EaseErpV1Model.FK_tblEmployee_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPayroll_tblCompany" Association="EaseErpV1Model.FK_tblPayroll_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblPayroll" EntitySet="tblPayrolls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStock_tblCompany" Association="EaseErpV1Model.FK_tblStock_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblStock" EntitySet="tblStocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSupplier_tblCompany" Association="EaseErpV1Model.FK_tblSupplier_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblSupplier" EntitySet="tblSuppliers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSupplierInvoiceTable_tblCompany" Association="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblSupplierInvoice" EntitySet="tblSupplierInvoices" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1501,10 +1500,10 @@
           <Property Name="AccountControlName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblBranch" Relationship="EaseErpV1Model.FK_tblAccountControl_tblBranch" FromRole="tblAccountControl" ToRole="tblBranch" />
-          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblAccountControl_tblCompany" FromRole="tblAccountControl" ToRole="tblCompany" />
           <NavigationProperty Name="tblUser" Relationship="EaseErpV1Model.FK_tblAccountControl_tblUser" FromRole="tblAccountControl" ToRole="tblUser" />
           <NavigationProperty Name="tblAccountSubControls" Relationship="EaseErpV1Model.FK_tblAccountSubControl_tblAccountControl" FromRole="tblAccountControl" ToRole="tblAccountSubControl" />
           <NavigationProperty Name="tblTransactions" Relationship="EaseErpV1Model.FK_tblTransaction_tblAccountControl" FromRole="tblAccountControl" ToRole="tblTransaction" />
+          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblAccountControl_tblCompany" FromRole="tblAccountControl" ToRole="tblCompany" />
         </EntityType>
         <EntityType Name="tblAccountHead">
           <Key>
@@ -1542,12 +1541,11 @@
           <Key>
             <PropertyRef Name="BranchID" />
           </Key>
-          <Property Name="BranchID" Type="Int32" Nullable="false" />
-          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="BranchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BranchTypeID" Type="Int32" Nullable="false" />
-          <Property Name="BranchName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BranchName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="BranchContact" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BranchAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BranchAddress" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="CompanyID" Type="Int32" Nullable="false" />
           <Property Name="BrchID" Type="Int32" />
           <NavigationProperty Name="tblAccountControls" Relationship="EaseErpV1Model.FK_tblAccountControl_tblBranch" FromRole="tblBranch" ToRole="tblAccountControl" />
@@ -1567,7 +1565,7 @@
           <Key>
             <PropertyRef Name="BranchTypeID" />
           </Key>
-          <Property Name="BranchTypeID" Type="Int32" Nullable="false" />
+          <Property Name="BranchTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BranchType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tblBranches" Relationship="EaseErpV1Model.FK_tblBranch_tblBranchType" FromRole="tblBranchType" ToRole="tblBranch" />
         </EntityType>
@@ -1581,26 +1579,9 @@
           <Property Name="CompanyID" Type="Int32" Nullable="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblBranch" Relationship="EaseErpV1Model.FK_tblCategory_tblBranch" FromRole="tblCategory" ToRole="tblBranch" />
-          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblCategory_tblCompany" FromRole="tblCategory" ToRole="tblCompany" />
           <NavigationProperty Name="tblUser" Relationship="EaseErpV1Model.FK_tblCategory_tblUser" FromRole="tblCategory" ToRole="tblUser" />
           <NavigationProperty Name="tblStocks" Relationship="EaseErpV1Model.FK_tblStock_tblCategory" FromRole="tblCategory" ToRole="tblStock" />
-        </EntityType>
-        <EntityType Name="tblCompany">
-          <Key>
-            <PropertyRef Name="CompanyID" />
-          </Key>
-          <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tblAccountControls" Relationship="EaseErpV1Model.FK_tblAccountControl_tblCompany" FromRole="tblCompany" ToRole="tblAccountControl" />
-          <NavigationProperty Name="tblCategories" Relationship="EaseErpV1Model.FK_tblCategory_tblCompany" FromRole="tblCompany" ToRole="tblCategory" />
-          <NavigationProperty Name="tblCustomers" Relationship="EaseErpV1Model.FK_tblCustomer_tblCompany" FromRole="tblCompany" ToRole="tblCustomer" />
-          <NavigationProperty Name="tblCustomerInvoices" Relationship="EaseErpV1Model.FK_tblCustomerInvoice_tblCompany" FromRole="tblCompany" ToRole="tblCustomerInvoice" />
-          <NavigationProperty Name="tblCustomerPayments" Relationship="EaseErpV1Model.FK_tblCustomerPayment_tblCompany" FromRole="tblCompany" ToRole="tblCustomerPayment" />
-          <NavigationProperty Name="tblEmployees" Relationship="EaseErpV1Model.FK_tblEmployee_tblCompany" FromRole="tblCompany" ToRole="tblEmployee" />
-          <NavigationProperty Name="tblPayrolls" Relationship="EaseErpV1Model.FK_tblPayroll_tblCompany" FromRole="tblCompany" ToRole="tblPayroll" />
-          <NavigationProperty Name="tblStocks" Relationship="EaseErpV1Model.FK_tblStock_tblCompany" FromRole="tblCompany" ToRole="tblStock" />
-          <NavigationProperty Name="tblSuppliers" Relationship="EaseErpV1Model.FK_tblSupplier_tblCompany" FromRole="tblCompany" ToRole="tblSupplier" />
-          <NavigationProperty Name="tblSupplierInvoices" Relationship="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblCompany" FromRole="tblCompany" ToRole="tblSupplierInvoice" />
+          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblCategory_tblCompany" FromRole="tblCategory" ToRole="tblCompany" />
         </EntityType>
         <EntityType Name="tblCustomer">
           <Key>
@@ -1616,9 +1597,9 @@
           <Property Name="CompanyID" Type="Int32" Nullable="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblBranch" Relationship="EaseErpV1Model.FK_tblCustomer_tblBranch" FromRole="tblCustomer" ToRole="tblBranch" />
-          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblCustomer_tblCompany" FromRole="tblCustomer" ToRole="tblCompany" />
           <NavigationProperty Name="tblUser" Relationship="EaseErpV1Model.FK_tblCustomer_tblUser" FromRole="tblCustomer" ToRole="tblUser" />
           <NavigationProperty Name="tblCustomerInvoices" Relationship="EaseErpV1Model.FK_tblCustomerInvoice_tblCustomer" FromRole="tblCustomer" ToRole="tblCustomerInvoice" />
+          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblCustomer_tblCompany" FromRole="tblCustomer" ToRole="tblCompany" />
         </EntityType>
         <EntityType Name="tblCustomerInvoice">
           <Key>
@@ -1635,11 +1616,11 @@
           <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblBranch" Relationship="EaseErpV1Model.FK_tblCustomerInvoice_tblBranch" FromRole="tblCustomerInvoice" ToRole="tblBranch" />
-          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblCustomerInvoice_tblCompany" FromRole="tblCustomerInvoice" ToRole="tblCompany" />
           <NavigationProperty Name="tblCustomer" Relationship="EaseErpV1Model.FK_tblCustomerInvoice_tblCustomer" FromRole="tblCustomerInvoice" ToRole="tblCustomer" />
           <NavigationProperty Name="tblUser" Relationship="EaseErpV1Model.FK_tblCustomerInvoice_tblUser" FromRole="tblCustomerInvoice" ToRole="tblUser" />
           <NavigationProperty Name="tblCustomerInvoiceDetails" Relationship="EaseErpV1Model.FK_tblCustomerInvoiceDetail_tblCustomerInvoice" FromRole="tblCustomerInvoice" ToRole="tblCustomerInvoiceDetail" />
           <NavigationProperty Name="tblCustomerPayments" Relationship="EaseErpV1Model.FK_tblCustomerPayment_tblCustomerInvoice" FromRole="tblCustomerInvoice" ToRole="tblCustomerPayment" />
+          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblCustomerInvoice_tblCompany" FromRole="tblCustomerInvoice" ToRole="tblCompany" />
         </EntityType>
         <EntityType Name="tblCustomerInvoiceDetail">
           <Key>
@@ -1668,9 +1649,9 @@
           <Property Name="RemainingBalance" Type="Double" Nullable="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblBranch" Relationship="EaseErpV1Model.FK_tblCustomerPayment_tblBranch" FromRole="tblCustomerPayment" ToRole="tblBranch" />
-          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblCustomerPayment_tblCompany" FromRole="tblCustomerPayment" ToRole="tblCompany" />
           <NavigationProperty Name="tblCustomerInvoice" Relationship="EaseErpV1Model.FK_tblCustomerPayment_tblCustomerInvoice" FromRole="tblCustomerPayment" ToRole="tblCustomerInvoice" />
           <NavigationProperty Name="tblUser" Relationship="EaseErpV1Model.FK_tblCustomerPayment_tblUser" FromRole="tblCustomerPayment" ToRole="tblUser" />
+          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblCustomerPayment_tblCompany" FromRole="tblCustomerPayment" ToRole="tblCompany" />
         </EntityType>
         <EntityType Name="tblEmployee">
           <Key>
@@ -1689,8 +1670,8 @@
           <Property Name="BranchID" Type="Int32" Nullable="false" />
           <Property Name="CompanyID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblBranch" Relationship="EaseErpV1Model.FK_tblEmployee_tblBranch" FromRole="tblEmployee" ToRole="tblBranch" />
-          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblEmployee_tblCompany" FromRole="tblEmployee" ToRole="tblCompany" />
           <NavigationProperty Name="tblPayrolls" Relationship="EaseErpV1Model.FK_tblPayroll_tblEmployee" FromRole="tblEmployee" ToRole="tblPayroll" />
+          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblEmployee_tblCompany" FromRole="tblEmployee" ToRole="tblCompany" />
         </EntityType>
         <EntityType Name="tblFinancialYear">
           <Key>
@@ -1721,9 +1702,9 @@
           <Property Name="SalaryYear" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblBranch" Relationship="EaseErpV1Model.FK_tblPayroll_tblBranch" FromRole="tblPayroll" ToRole="tblBranch" />
-          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblPayroll_tblCompany" FromRole="tblPayroll" ToRole="tblCompany" />
           <NavigationProperty Name="tblEmployee" Relationship="EaseErpV1Model.FK_tblPayroll_tblEmployee" FromRole="tblPayroll" ToRole="tblEmployee" />
           <NavigationProperty Name="tblUser" Relationship="EaseErpV1Model.FK_tblPayroll_tblUser" FromRole="tblPayroll" ToRole="tblUser" />
+          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblPayroll_tblCompany" FromRole="tblPayroll" ToRole="tblCompany" />
         </EntityType>
         <EntityType Name="tblStock">
           <Key>
@@ -1745,10 +1726,10 @@
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="tblBranch" Relationship="EaseErpV1Model.FK_tblStock_tblBranch" FromRole="tblStock" ToRole="tblBranch" />
           <NavigationProperty Name="tblCategory" Relationship="EaseErpV1Model.FK_tblStock_tblCategory" FromRole="tblStock" ToRole="tblCategory" />
-          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblStock_tblCompany" FromRole="tblStock" ToRole="tblCompany" />
           <NavigationProperty Name="tblCustomerInvoiceDetails" Relationship="EaseErpV1Model.FK_tblCustomerInvoiceDetail_tblStock" FromRole="tblStock" ToRole="tblCustomerInvoiceDetail" />
           <NavigationProperty Name="tblUser" Relationship="EaseErpV1Model.FK_tblStock_tblUser" FromRole="tblStock" ToRole="tblUser" />
           <NavigationProperty Name="tblSupplierInvoiceDetails" Relationship="EaseErpV1Model.FK_tblSupplierInvoiceDetail_tblStock" FromRole="tblStock" ToRole="tblSupplierInvoiceDetail" />
+          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblStock_tblCompany" FromRole="tblStock" ToRole="tblCompany" />
         </EntityType>
         <EntityType Name="tblSupplier">
           <Key>
@@ -1764,10 +1745,10 @@
           <Property Name="CompanyID" Type="Int32" Nullable="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblBranch" Relationship="EaseErpV1Model.FK_tblSupplier_tblBranch" FromRole="tblSupplier" ToRole="tblBranch" />
-          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblSupplier_tblCompany" FromRole="tblSupplier" ToRole="tblCompany" />
           <NavigationProperty Name="tblUser" Relationship="EaseErpV1Model.FK_tblSupplier_tblUser" FromRole="tblSupplier" ToRole="tblUser" />
           <NavigationProperty Name="tblSupplierInvoices" Relationship="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblSupplier" FromRole="tblSupplier" ToRole="tblSupplierInvoice" />
           <NavigationProperty Name="tblSupplierPayments" Relationship="EaseErpV1Model.FK_tblSupplierPayment_tblSupplier" FromRole="tblSupplier" ToRole="tblSupplierPayment" />
+          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblSupplier_tblCompany" FromRole="tblSupplier" ToRole="tblCompany" />
         </EntityType>
         <EntityType Name="tblSupplierInvoice">
           <Key>
@@ -1783,10 +1764,10 @@
           <Property Name="Description" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblBranch" Relationship="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblBranch" FromRole="tblSupplierInvoice" ToRole="tblBranch" />
-          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblCompany" FromRole="tblSupplierInvoice" ToRole="tblCompany" />
           <NavigationProperty Name="tblSupplier" Relationship="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblSupplier" FromRole="tblSupplierInvoice" ToRole="tblSupplier" />
           <NavigationProperty Name="tblUser" Relationship="EaseErpV1Model.FK_tblSupplierInvoice_tblUser" FromRole="tblSupplierInvoice" ToRole="tblUser" />
           <NavigationProperty Name="tblSupplierInvoiceDetails" Relationship="EaseErpV1Model.FK_tblSupplierInvoiceDetail_tblSupplierInvoice" FromRole="tblSupplierInvoice" ToRole="tblSupplierInvoiceDetail" />
+          <NavigationProperty Name="tblCompany" Relationship="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblCompany" FromRole="tblSupplierInvoice" ToRole="tblCompany" />
         </EntityType>
         <EntityType Name="tblSupplierInvoiceDetail">
           <Key>
@@ -1846,8 +1827,7 @@
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserTypeID" Type="Int32" Nullable="false" />
           <Property Name="FullName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
@@ -1875,7 +1855,7 @@
           <Key>
             <PropertyRef Name="UserTypeID" />
           </Key>
-          <Property Name="UserTypeID" Type="Int32" Nullable="false" />
+          <Property Name="UserTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserType" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblUsers" Relationship="EaseErpV1Model.FK_tblUser_tblUserType" FromRole="tblUserType" ToRole="tblUser" />
         </EntityType>
@@ -1888,18 +1868,6 @@
             </Principal>
             <Dependent Role="tblAccountControl">
               <PropertyRef Name="BranchID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblAccountControl_tblCompany">
-          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
-          <End Type="EaseErpV1Model.tblAccountControl" Role="tblAccountControl" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblCompany">
-              <PropertyRef Name="CompanyID" />
-            </Principal>
-            <Dependent Role="tblAccountControl">
-              <PropertyRef Name="CompanyID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2153,18 +2121,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tblCategory_tblCompany">
-          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
-          <End Type="EaseErpV1Model.tblCategory" Role="tblCategory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblCompany">
-              <PropertyRef Name="CompanyID" />
-            </Principal>
-            <Dependent Role="tblCategory">
-              <PropertyRef Name="CompanyID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tblCategory_tblUser">
           <End Type="EaseErpV1Model.tblUser" Role="tblUser" Multiplicity="1" />
           <End Type="EaseErpV1Model.tblCategory" Role="tblCategory" Multiplicity="*" />
@@ -2188,102 +2144,6 @@
             </Principal>
             <Dependent Role="tblStock">
               <PropertyRef Name="CategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblCustomer_tblCompany">
-          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
-          <End Type="EaseErpV1Model.tblCustomer" Role="tblCustomer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblCompany">
-              <PropertyRef Name="CompanyID" />
-            </Principal>
-            <Dependent Role="tblCustomer">
-              <PropertyRef Name="CompanyID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblCustomerInvoice_tblCompany">
-          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
-          <End Type="EaseErpV1Model.tblCustomerInvoice" Role="tblCustomerInvoice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblCompany">
-              <PropertyRef Name="CompanyID" />
-            </Principal>
-            <Dependent Role="tblCustomerInvoice">
-              <PropertyRef Name="CompanyID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblCustomerPayment_tblCompany">
-          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
-          <End Type="EaseErpV1Model.tblCustomerPayment" Role="tblCustomerPayment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblCompany">
-              <PropertyRef Name="CompanyID" />
-            </Principal>
-            <Dependent Role="tblCustomerPayment">
-              <PropertyRef Name="CompanyID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblEmployee_tblCompany">
-          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
-          <End Type="EaseErpV1Model.tblEmployee" Role="tblEmployee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblCompany">
-              <PropertyRef Name="CompanyID" />
-            </Principal>
-            <Dependent Role="tblEmployee">
-              <PropertyRef Name="CompanyID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblPayroll_tblCompany">
-          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
-          <End Type="EaseErpV1Model.tblPayroll" Role="tblPayroll" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblCompany">
-              <PropertyRef Name="CompanyID" />
-            </Principal>
-            <Dependent Role="tblPayroll">
-              <PropertyRef Name="CompanyID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblStock_tblCompany">
-          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
-          <End Type="EaseErpV1Model.tblStock" Role="tblStock" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblCompany">
-              <PropertyRef Name="CompanyID" />
-            </Principal>
-            <Dependent Role="tblStock">
-              <PropertyRef Name="CompanyID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblSupplier_tblCompany">
-          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
-          <End Type="EaseErpV1Model.tblSupplier" Role="tblSupplier" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblCompany">
-              <PropertyRef Name="CompanyID" />
-            </Principal>
-            <Dependent Role="tblSupplier">
-              <PropertyRef Name="CompanyID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblSupplierInvoiceTable_tblCompany">
-          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
-          <End Type="EaseErpV1Model.tblSupplierInvoice" Role="tblSupplierInvoice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblCompany">
-              <PropertyRef Name="CompanyID" />
-            </Principal>
-            <Dependent Role="tblSupplierInvoice">
-              <PropertyRef Name="CompanyID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2571,7 +2431,145 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <EntityType Name="tblCompany">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Logo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblAccountControls" Relationship="EaseErpV1Model.FK_tblAccountControl_tblCompany" FromRole="tblCompany" ToRole="tblAccountControl" />
+          <NavigationProperty Name="tblCategories" Relationship="EaseErpV1Model.FK_tblCategory_tblCompany" FromRole="tblCompany" ToRole="tblCategory" />
+          <NavigationProperty Name="tblCustomers" Relationship="EaseErpV1Model.FK_tblCustomer_tblCompany" FromRole="tblCompany" ToRole="tblCustomer" />
+          <NavigationProperty Name="tblCustomerInvoices" Relationship="EaseErpV1Model.FK_tblCustomerInvoice_tblCompany" FromRole="tblCompany" ToRole="tblCustomerInvoice" />
+          <NavigationProperty Name="tblCustomerPayments" Relationship="EaseErpV1Model.FK_tblCustomerPayment_tblCompany" FromRole="tblCompany" ToRole="tblCustomerPayment" />
+          <NavigationProperty Name="tblEmployees" Relationship="EaseErpV1Model.FK_tblEmployee_tblCompany" FromRole="tblCompany" ToRole="tblEmployee" />
+          <NavigationProperty Name="tblPayrolls" Relationship="EaseErpV1Model.FK_tblPayroll_tblCompany" FromRole="tblCompany" ToRole="tblPayroll" />
+          <NavigationProperty Name="tblStocks" Relationship="EaseErpV1Model.FK_tblStock_tblCompany" FromRole="tblCompany" ToRole="tblStock" />
+          <NavigationProperty Name="tblSuppliers" Relationship="EaseErpV1Model.FK_tblSupplier_tblCompany" FromRole="tblCompany" ToRole="tblSupplier" />
+          <NavigationProperty Name="tblSupplierInvoices" Relationship="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblCompany" FromRole="tblCompany" ToRole="tblSupplierInvoice" />
+        </EntityType>
+        <Association Name="FK_tblAccountControl_tblCompany">
+          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
+          <End Type="EaseErpV1Model.tblAccountControl" Role="tblAccountControl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="tblAccountControl">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCategory_tblCompany">
+          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
+          <End Type="EaseErpV1Model.tblCategory" Role="tblCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="tblCategory">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomer_tblCompany">
+          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
+          <End Type="EaseErpV1Model.tblCustomer" Role="tblCustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="tblCustomer">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomerInvoice_tblCompany">
+          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
+          <End Type="EaseErpV1Model.tblCustomerInvoice" Role="tblCustomerInvoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="tblCustomerInvoice">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomerPayment_tblCompany">
+          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
+          <End Type="EaseErpV1Model.tblCustomerPayment" Role="tblCustomerPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="tblCustomerPayment">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblEmployee_tblCompany">
+          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
+          <End Type="EaseErpV1Model.tblEmployee" Role="tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPayroll_tblCompany">
+          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
+          <End Type="EaseErpV1Model.tblPayroll" Role="tblPayroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="tblPayroll">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStock_tblCompany">
+          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
+          <End Type="EaseErpV1Model.tblStock" Role="tblStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="tblStock">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSupplier_tblCompany">
+          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
+          <End Type="EaseErpV1Model.tblSupplier" Role="tblSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="tblSupplier">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSupplierInvoiceTable_tblCompany">
+          <End Type="EaseErpV1Model.tblCompany" Role="tblCompany" Multiplicity="1" />
+          <End Type="EaseErpV1Model.tblSupplierInvoice" Role="tblSupplierInvoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="tblSupplierInvoice">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -2634,7 +2632,6 @@
                 <ScalarProperty Name="BranchContact" ColumnName="BranchContact" />
                 <ScalarProperty Name="BranchName" ColumnName="BranchName" />
                 <ScalarProperty Name="BranchTypeID" ColumnName="BranchTypeID" />
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="BranchID" ColumnName="BranchID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2655,14 +2652,6 @@
                 <ScalarProperty Name="BranchID" ColumnName="BranchID" />
                 <ScalarProperty Name="categoryName" ColumnName="categoryName" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblCompanies">
-            <EntityTypeMapping TypeName="EaseErpV1Model.tblCompany">
-              <MappingFragment StoreEntitySet="tblCompany">
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2876,7 +2865,6 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2886,6 +2874,15 @@
               <MappingFragment StoreEntitySet="tblUserType">
                 <ScalarProperty Name="UserType" ColumnName="UserType" />
                 <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCompanies">
+            <EntityTypeMapping TypeName="EaseErpV1Model.tblCompany">
+              <MappingFragment StoreEntitySet="tblCompany">
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

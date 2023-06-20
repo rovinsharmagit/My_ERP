@@ -32,7 +32,6 @@ namespace db_class
         public virtual DbSet<tblBranch> tblBranches { get; set; }
         public virtual DbSet<tblBranchType> tblBranchTypes { get; set; }
         public virtual DbSet<tblCategory> tblCategories { get; set; }
-        public virtual DbSet<tblCompany> tblCompanies { get; set; }
         public virtual DbSet<tblCustomer> tblCustomers { get; set; }
         public virtual DbSet<tblCustomerInvoice> tblCustomerInvoices { get; set; }
         public virtual DbSet<tblCustomerInvoiceDetail> tblCustomerInvoiceDetails { get; set; }
@@ -48,5 +47,6 @@ namespace db_class
         public virtual DbSet<tblTransaction> tblTransactions { get; set; }
         public virtual DbSet<tblUser> tblUsers { get; set; }
         public virtual DbSet<tblUserType> tblUserTypes { get; set; }
+        public virtual DbSet<tblCompany> tblCompanies { get; set; }
     }
 }
