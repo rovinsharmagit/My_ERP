@@ -34,7 +34,6 @@ namespace db_class
         }
     
         public int UserID { get; set; }
-        public int EmployeeID { get; set; }
         public int UserTypeID { get; set; }
         public string FullName { get; set; }
         public string Email { get; set; }

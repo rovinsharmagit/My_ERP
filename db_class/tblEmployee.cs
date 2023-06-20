@@ -34,8 +34,8 @@ namespace db_class
         public int CompanyID { get; set; }
     
         public virtual tblBranch tblBranch { get; set; }
-        public virtual tblCompany tblCompany { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblPayroll> tblPayrolls { get; set; }
+        public virtual tblCompany tblCompany { get; set; }
     }
 }

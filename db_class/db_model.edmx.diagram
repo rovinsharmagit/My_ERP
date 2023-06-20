@@ -4,32 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4cedb1110227416799f9bfab7f710944" Name="Diagram1">
+      <Diagram DiagramId="4cedb1110227416799f9bfab7f710944" Name="Diagram1" ZoomLevel="93">
         <EntityTypeShape EntityType="EaseErpV1Model.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="EaseErpV1Model.tblAccountControl" Width="1.5" PointX="5.25" PointY="14.125" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblAccountHead" Width="1.5" PointX="5.25" PointY="41.5" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblAccountSubControl" Width="1.5" PointX="7.5" PointY="27.625" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblBranch" Width="1.5" PointX="3" PointY="11.25" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblBranchType" Width="1.5" PointX="0.75" PointY="12.875" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblAccountHead" Width="1.5" PointX="5.25" PointY="38" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblAccountSubControl" Width="1.5" PointX="7.5" PointY="25.875" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblBranch" Width="1.5" PointX="3" PointY="24.5" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblBranchType" Width="1.5" PointX="0.75" PointY="26" />
         <EntityTypeShape EntityType="EaseErpV1Model.tblCategory" Width="1.5" PointX="5.25" PointY="23.375" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblCompany" Width="1.5" PointX="3" PointY="24.875" />
         <EntityTypeShape EntityType="EaseErpV1Model.tblCustomer" Width="1.5" PointX="8.25" PointY="18.875" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblCustomerInvoice" Width="1.5" PointX="10.5" PointY="21.625" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblCustomerInvoiceDetail" Width="1.5" PointX="15.75" PointY="24.75" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblCustomerPayment" Width="1.5" PointX="15.75" PointY="20" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblEmployee" Width="1.5" PointX="3" PointY="29.75" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblFinancialYear" Width="1.5" PointX="5.25" PointY="38" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblPayroll" Width="1.5" PointX="5.25" PointY="18.875" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblStock" Width="1.5" PointX="13.5" PointY="21.5" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblSupplier" Width="1.5" PointX="8.25" PointY="13.875" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblSupplierInvoice" Width="1.5" PointX="13.5" PointY="16.875" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblSupplierInvoiceDetail" Width="1.5" PointX="18.75" PointY="20.375" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblSupplierPayment" Width="1.5" PointX="10.5" PointY="17" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblTransaction" Width="1.5" PointX="9.75" PointY="26.875" />
-        <EntityTypeShape EntityType="EaseErpV1Model.tblUser" Width="1.5" PointX="3" PointY="17.875" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblCustomerInvoice" Width="1.5" PointX="10.5" PointY="18.625" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblCustomerInvoiceDetail" Width="1.5" PointX="15.75" PointY="23.375" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblCustomerPayment" Width="1.5" PointX="15.75" PointY="18.875" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblEmployee" Width="1.5" PointX="6" PointY="8.75" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblFinancialYear" Width="1.5" PointX="5.25" PointY="41.75" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblPayroll" Width="1.5" PointX="8.25" PointY="13.875" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblStock" Width="1.5" PointX="13.5" PointY="19.625" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblSupplier" Width="1.5" PointX="5.25" PointY="18.875" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblSupplierInvoice" Width="1.5" PointX="10.5" PointY="13.875" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblSupplierInvoiceDetail" Width="1.5" PointX="15.75" PointY="15" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblSupplierPayment" Width="1.5" PointX="10.5" PointY="24" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblTransaction" Width="1.5" PointX="9.75" PointY="28.875" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblUser" Width="1.5" PointX="3" PointY="18" />
         <EntityTypeShape EntityType="EaseErpV1Model.tblUserType" Width="1.5" PointX="0.75" PointY="19.875" />
         <AssociationConnector Association="EaseErpV1Model.FK_tblAccountControl_tblBranch" />
-        <AssociationConnector Association="EaseErpV1Model.FK_tblAccountControl_tblCompany" />
         <AssociationConnector Association="EaseErpV1Model.FK_tblAccountControl_tblUser" />
         <AssociationConnector Association="EaseErpV1Model.FK_tblAccountSubControl_tblAccountControl" />
         <AssociationConnector Association="EaseErpV1Model.FK_tblTransaction_tblAccountControl" />
@@ -50,17 +48,8 @@
         <AssociationConnector Association="EaseErpV1Model.FK_tblStock_tblBranch" />
         <AssociationConnector Association="EaseErpV1Model.FK_tblSupplier_tblBranch" />
         <AssociationConnector Association="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblBranch" />
-        <AssociationConnector Association="EaseErpV1Model.FK_tblCategory_tblCompany" />
         <AssociationConnector Association="EaseErpV1Model.FK_tblCategory_tblUser" />
         <AssociationConnector Association="EaseErpV1Model.FK_tblStock_tblCategory" />
-        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomer_tblCompany" />
-        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerInvoice_tblCompany" />
-        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerPayment_tblCompany" />
-        <AssociationConnector Association="EaseErpV1Model.FK_tblEmployee_tblCompany" />
-        <AssociationConnector Association="EaseErpV1Model.FK_tblPayroll_tblCompany" />
-        <AssociationConnector Association="EaseErpV1Model.FK_tblStock_tblCompany" />
-        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplier_tblCompany" />
-        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblCompany" />
         <AssociationConnector Association="EaseErpV1Model.FK_tblCustomer_tblUser" />
         <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerInvoice_tblCustomer" />
         <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerInvoice_tblUser" />
@@ -83,6 +72,17 @@
         <AssociationConnector Association="EaseErpV1Model.FK_tblSupplierPayment_tblUser" />
         <AssociationConnector Association="EaseErpV1Model.FK_tblTransaction_tblUser" />
         <AssociationConnector Association="EaseErpV1Model.FK_tblUser_tblUserType" />
+        <EntityTypeShape EntityType="EaseErpV1Model.tblCompany" Width="1.5" PointX="3" PointY="11.25" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblAccountControl_tblCompany" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCategory_tblCompany" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomer_tblCompany" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerInvoice_tblCompany" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblCustomerPayment_tblCompany" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblEmployee_tblCompany" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblPayroll_tblCompany" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblStock_tblCompany" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplier_tblCompany" />
+        <AssociationConnector Association="EaseErpV1Model.FK_tblSupplierInvoiceTable_tblCompany" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
